@@ -18,21 +18,34 @@ with st.sidebar:
     """)
 
 
-company = "Mito"
-keyword = "Mito Spreadsheets"
+# Code to size image with the text from ash2shukla https://discuss.streamlit.io/t/image-and-text-next-to-each-other/7627/18
+st.markdown(
+    """
+    <style>
+    .container {
+        display: flex;
+    }
+    .logo-text {
+    }
+    .logo-img {
+        float:right;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
-col1, col2 = st.columns([0.2, 3.8])  # Adjust ratio as needed
+st.markdown(
+    f"""
+    <div class="container">
+        <img class="logo-img" src="data:image/png;base64,{base64.b64encode(open("figures/Mitochondria.png", "rb").read()).decode()}">
+        <h2 class="logo-text">Sentiments About Mito</h2>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
-
-with col1:  
-    st.image("figures/Mitochondria.png", caption="")
-
-with col2:  
-    st.markdown(f"<h2 style='padding-top: 0;'> Sentiments About {company} </h2>", unsafe_allow_html=True)
-
-
-
-st.write(f"The bar graph below shows the distribution of sentiments of webpages mentioning {keyword}. Click on a bar to view each link.")
+st.write(f"The bar graph below shows the distribution of sentiments of webpages mentioning Mito Spreadsheets. Click on a bar to view each link.")
 
 with open('figures/SentimentsGraph.html', 'r', encoding='utf-8') as file:
     sentiment_graph_data = file.read()

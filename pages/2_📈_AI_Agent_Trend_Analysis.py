@@ -1,5 +1,5 @@
 import streamlit as st
-
+import base64
 
 st.set_page_config(
     page_title = "AI Agent Trend Analysis",
@@ -26,9 +26,8 @@ keyword = "Mito Spreadsheets"
 # with col2:  
 #     st.markdown(f"<h2 style='padding-top: 0;'>AI Agent Trend Analysis</h2>", unsafe_allow_html=True)
 
-import base64
 
-
+# Code to size image with the text from ash2shukla https://discuss.streamlit.io/t/image-and-text-next-to-each-other/7627/18
 st.markdown(
     """
     <style>
