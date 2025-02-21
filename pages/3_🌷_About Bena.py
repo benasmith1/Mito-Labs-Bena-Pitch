@@ -19,7 +19,7 @@ with st.sidebar:
 col1, col2 = st.columns([1, 3])  # Adjust ratio as needed
 
 with col1:
-    st.image("figures/BenaSmithHeadshot.png", width=100, caption="")
+    st.image("figures/BenaSmithHeadshot.png", width=200, caption="")
 
 with col2:
     st.markdown("""I am especially excited about creating AI agents. At Gallo Winery, I created a LangChain AI agent to ask questions about Gallo’s wine sales in plain language. 
