@@ -27,9 +27,9 @@ keyword = "Mito Spreadsheets"
 #     st.image("figures/Mitochondria.png", width=50, caption="")
 
 # with col2:  
-#     st.markdown(f"<img>figures/Mitochondria.png</img> <h2 style='padding-top: 0;'> AI Agent Trend Analysis </h2>", unsafe_allow_html=True)
+#     st.markdown(f"<h2 style='padding-top: 0;'> AI Agent Trend Analysis </h2>", unsafe_allow_html=True)
 
-st.markdown(f"<img>figures/Mitochondria.png</img> <h2 style='padding-top: 0;'> AI Agent Trend Analysis </h2>", unsafe_allow_html=True)
+st.markdown(f"<img src=figures/Mitochondria.png, alt=\"mito logo\"> <h2 style='padding-top: 0;'> AI Agent Trend Analysis </h2>", unsafe_allow_html=True)
 
 
 st.write(f"The line graph below shows the trends of Google searches for \"AI Agents\" and \"Learn Python\"")
