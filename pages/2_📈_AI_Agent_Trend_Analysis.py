@@ -36,10 +36,6 @@ st.markdown(
         display: flex;
     }
     .logo-text {
-        font-weight:700 !important;
-        font-size:50px !important;
-        color: black !important;
-        padding-top: 75px !important;
     }
     .logo-img {
         float:right;
@@ -53,7 +49,7 @@ st.markdown(
     f"""
     <div class="container">
         <img class="logo-img" src="data:image/png;base64,{base64.b64encode(open("figures/Mitochondria.png", "rb").read()).decode()}">
-        <p class="logo-text">AI Agent Trend Analysis</p>
+        <h2 class="logo-text">AI Agent Trend Analysis</h2>
     </div>
     """,
     unsafe_allow_html=True
