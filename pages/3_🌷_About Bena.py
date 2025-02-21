@@ -12,7 +12,7 @@ with st.sidebar:
     st.header("🔍 Navigate the App")
     st.write("Use the links above to explore:")
     st.markdown("""
-    - **Sentiment Analysis**: Explore sentiments about MitoLabs on the web.
+    - **Sentiments About Mito**: Explore sentiments about MitoLabs on the web.
     - **AI Agent Trends**: Time series analysis of \"AI agent\" google searches.
     - **About Bena**: A bit about me!
     """)

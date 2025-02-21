@@ -12,7 +12,7 @@ with st.sidebar:
     st.header("🔍 Navigate the App")
     st.write("Use the links above to explore:")
     st.markdown("""
-    - **Sentiment Analysis**: Explore sentiments about MitoLabs on the web.
+    - **Sentiments About Mito**: Explore sentiments about MitoLabs on the web.
     - **AI Agent Trends**: Time series analysis of \"AI agent\" google searches.
     - **About Bena**: A bit about me!
     """)
@@ -24,7 +24,7 @@ col1, col2 = st.columns([0.2, 3.8])  # Adjust ratio as needed
 
 
 with col1:  
-    st.image("figures/Mitochondria.png")  # Ensures the image fits within the column width
+    st.image("figures/Mitochondria.png") 
 
 
 with col2:  
@@ -45,14 +45,14 @@ st.write("I used a Poisson GLM because we are examining count data. This model c
 st.write("Because this is time series data, there may be leftover autocorrelation between residuals after modeling with the Poisson GLM. This means that knowing the value at one time point may give you information about the value at the next time point. \
         This violates the regression assumption of independent observations and leads to potentially inacurrate standard errors and pvalues. To account for this, I applied the Newey-West estimator which accounts for this autocorrelation when estimating standard errors.")
 
-st.write("Our residuals are pictured below with autocorrelation functions and partial autocorrelation functions so we can examine if thisstandard error adjustment is necessary")
+st.write("Our residuals are pictured below with autocorrelation functions and partial autocorrelation functions so we can examine if this standard error adjustment is necessary.")
 st.write("")
 st.write("")
 
 st.image('figures/SearchesoverTimeResiduals.png', caption="", width=850)
 
 st.write("")
-st.write("We see geometric decay in our ACFs and spikes after lag 1 in our PACFs, indicating there is autocorrelation in our residuals. So, we apply the Newey West adjustment to our model. This does not change the coefficients of our model, only the standard errors and p values")
+st.write("We see geometric decay in our ACFs and significant spikes after lag 1 in our PACFs, indicating there is evidence of autocorrelation in our residuals. So, we apply the Newey West adjustment to our model. This does not change the coefficients of our model, only the standard errors and p values")
 st.write("")
 
 st.markdown("<h4>Results</h4>", unsafe_allow_html=True)
@@ -67,7 +67,7 @@ st.write("Our model coefficients and metrics are shown below.")
 
 st.image('figures/SearchesOverTimeModelCoefs.png', caption="", width=500)
 
-st.write("The p value for the coefficient of week is 0. This means that there is no evidence that the search interest for \"Learn Python\" has increased from 2020 to 2025.")
+st.write("The p value for the coefficient of week is not <0.05. This means that there is not evidence that the search interest for \"Learn Python\" has increased from 2020 to 2025.")
 st.write("Conversely, the interaction between week and \"AI Agents\" is statistically significant with a positive coefficient, providing evidence that there has been more of an increase in search interest for \"AI Agents\" than \"Learn Python\" from 2020 to 2025.")
 
 st.markdown("<h4>Conclusion</h4>", unsafe_allow_html=True)
