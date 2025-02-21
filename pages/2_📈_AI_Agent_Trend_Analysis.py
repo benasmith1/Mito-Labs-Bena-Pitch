@@ -35,7 +35,12 @@ st.markdown(
     .container {
         display: flex;
     }
-
+    .logo-text {
+        font-weight:700 !important;
+        font-size:50px !important;
+        color: black !important;
+        padding-top: 75px !important;
+    }
     .logo-img {
         float:right;
     }
