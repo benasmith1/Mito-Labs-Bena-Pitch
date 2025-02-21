@@ -55,7 +55,7 @@ with st.expander("**What can you do with this app?**", expanded=True):
     st.write("""
     😃 **Explore how users feel about Mito Labs**: Leveraging sentiment analysis on webpages mentioning Mito spreadsheets, we can view the overall opinions of users about this app. Using the OpenAI API, we can find popular phrases in these webpages to see what users like about the Mito application and what can be improved.
     
-    🌆 **Analyze the popularity of AI agents**: Using the Newey-West estimator for time series data and a Poisson generalized linear model, we can describe how search results for AI agents have changed over time. 
+    📈 **Analyze the popularity of AI agents**: Using the Newey-West estimator for time series data and a Poisson generalized linear model, we can describe how search results for AI agents have changed over time. 
 
     🌷 **About Bena**: I give a short synopsis of my interests and link my portfolio.    
     """)
