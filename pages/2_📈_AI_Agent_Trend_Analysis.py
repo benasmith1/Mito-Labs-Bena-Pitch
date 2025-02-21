@@ -23,13 +23,24 @@ keyword = "Mito Spreadsheets"
 col1, col2 = st.columns([0.2, 3.8])  # Adjust ratio as needed
 
 
-with col1:  
-    st.image("figures/Mitochondria.png", caption="")
+# with col1:  
+#     st.image("figures/Mitochondria.png", caption="")
 
-with col2:  
-    st.markdown(f"<h2 style='padding-top: 0;'>AI Agent Trend Analysis</h2>", unsafe_allow_html=True)
+# with col2:  
+#     st.markdown(f"<h2 style='padding-top: 0;'>AI Agent Trend Analysis</h2>", unsafe_allow_html=True)
 
+with col1:
+    st.markdown(
+        """
+        <div style="display: flex; align-items: center; height: 100%;">
+            <img src="figures/Mitochondria.png" style="height: 2em; object-fit: contain;">
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
+with col2:
+    st.markdown("<h2 style='padding-top: 0;'>AI Agent Trend Analysis</h2>", unsafe_allow_html=True)
 
 st.write(f"The line graph below shows the trends of Google searches for \"AI Agents\" and \"Learn Python\"")
 st.write("")
