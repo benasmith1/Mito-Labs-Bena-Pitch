@@ -91,7 +91,7 @@ with st.expander("🥳 **Conclusion**"):
             and write that Mito allows them to turn spreadsheets into Python and build data apps. It seems like this tool is working well \
             for users.
              
-            In order to find features that can be improved, we might send out surveys to get direct feedback about our product. Currently \
+            In order to find features that can be improved, we might send out surveys to get direct feedback about our product and run this analysis on those surveys. Currently \
             this analysis does not filter out promotional posts so our results may be skewed toward positive sentiments. People might also be more inclinded  \
             to provide constructive feedback anonymously. 🔮
              """)
