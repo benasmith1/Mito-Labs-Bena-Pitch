@@ -24,7 +24,7 @@ col1, col2 = st.columns([0.2, 3.8])  # Adjust ratio as needed
 
 
 with col1:  
-    st.image("figures/Mitochondria.png", width=50, caption="")
+    st.image("figures/Mitochondria.png", width=70, caption="")
 
 with col2:  
     st.markdown(f"<h2 style='padding-top: 0;'> AI Agent Trend Analysis </h2>", unsafe_allow_html=True)
