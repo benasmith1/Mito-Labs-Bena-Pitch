@@ -7,6 +7,17 @@ st.set_page_config(
     layout = "wide"
 )
 
+# Sidebar navigation header
+with st.sidebar:
+    st.header("🔍 Navigate the App")
+    st.write("Use the links above to explore:")
+    st.markdown("""
+    - **Sentiment Analysis**: Explore sentiments about MitoLabs on the web.
+    - **AI Agent Trends**: Time series analysis of \"AI agent\" google searches.
+    - **About Bena**: A bit about me!
+    """)
+
+
 company = "Mito"
 keyword = "Mito Spreadsheets"
 

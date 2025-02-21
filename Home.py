@@ -8,6 +8,15 @@ st.set_page_config(
     # layout = "wide"
 )
 
+# Sidebar navigation header
+with st.sidebar:
+    st.header("🔍 Navigate the App")
+    st.write("Use the links above to explore:")
+    st.markdown("""
+    - **Sentiment Analysis**: Explore sentiments about MitoLabs on the web.
+    - **AI Agent Trends**: Time series analysis of \"AI agent\" google searches.
+    - **About Bena**: A bit about me!
+    """)
 
 # Centered Title using HTML and Markdown
 st.markdown(
@@ -39,14 +48,7 @@ st.write("My name is Bena Smith. I am a data scientist with an M.S. in statistic
         of my strengths. I performed sentiment analysis on webpages mentioning Mito spreadsheets and performed time series analysis on searches for AI Agents.\
         I hope you enjoy my analysis!")
 
-# Sidebar navigation header
-with st.sidebar:
-    st.header("🔍 Navigate the App")
-    st.write("Use the links above to explore:")
-    st.markdown("""
-    - **Sentiment Analysis**: Explore sentiments about MitoLabs on the web.
-    - **AI Agent Trends**: Time series analysis of \"AI agent\" google searches.
-    """)
+
 
 st.sidebar.info("Select a task above to proceed.")
 
