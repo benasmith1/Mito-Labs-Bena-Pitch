@@ -20,15 +20,16 @@ with st.sidebar:
 company = "Mito"
 keyword = "Mito Spreadsheets"
 
-col1, col2 = st.columns([0.2, 3.8])  # Adjust ratio as needed
+# col1, col2 = st.columns([0.2, 3.8])  # Adjust ratio as needed
 
 
-with col1:  
-    st.image("figures/Mitochondria.png", caption="")
+# with col1:  
+#     st.image("figures/Mitochondria.png", width=50, caption="")
 
-with col2:  
-    st.markdown(f"<h2 style='padding-top: 0;'> AI Agent Trend Analysis </h2>", unsafe_allow_html=True)
+# with col2:  
+#     st.markdown(f"<img>figures/Mitochondria.png</img> <h2 style='padding-top: 0;'> AI Agent Trend Analysis </h2>", unsafe_allow_html=True)
 
+st.markdown(f"<img>figures/Mitochondria.png</img> <h2 style='padding-top: 0;'> AI Agent Trend Analysis </h2>", unsafe_allow_html=True)
 
 
 st.write(f"The line graph below shows the trends of Google searches for \"AI Agents\" and \"Learn Python\"")
@@ -71,7 +72,7 @@ st.write("The p value for the coefficient of week is 0. This means that there is
 st.write("Conversely, the interaction between week and \"AI Agents\" is statistically significant with a positive coefficient, providing evidence that there has been more of an increase in search interest for \"AI Agents\" than \"Learn Python\" from 2020 to 2025.")
 
 st.markdown("<h4>Conclusion</h4>", unsafe_allow_html=True)
-st.write("Mito AI is a relevant topic because there has not been an increase in interest about learning Python over time, so users may use Mito AI for Python data manipulation. AI agents are also becoming more popular, showing that Mito AI is a relevant and innovative tool.")
+st.write("Mito AI is a relevant application because there has not been an increase in interest about learning Python over time, so users may use Mito AI for Python data manipulation. AI agents are also becoming more popular, showing that Mito AI is a relevant and innovative tool.")
 
 
 st.markdown("<h4>Data</h4>", unsafe_allow_html=True)
