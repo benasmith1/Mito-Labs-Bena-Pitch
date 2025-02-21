@@ -24,7 +24,7 @@ col1, col2 = st.columns([0.2, 3.8])  # Adjust ratio as needed
 
 
 with col1:  
-    st.image("figures/Mitochondria.png", use_container_width=True)  # Ensures the image fits within the column width
+    st.image("figures/Mitochondria.png")  # Ensures the image fits within the column width
 
 
 with col2:  
