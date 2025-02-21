@@ -1,0 +1,102 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(ggplot2)
+library(tidyverse)
+library(sandwich)
+library(lmtest)
+library(stargazer)
+library(texreg)
+
+```
+
+```{r}
+search_trends <- read.csv("multiTimeline.csv")
+colnames(search_trends) <- c("Week", "AI Agents", "Learn Python")
+search_trends$Week <- as.Date(search_trends$Week, format="%m/%d/%y")
+head(search_trends)
+
+```
+
+```{r}
+search_trends_long <- search_trends %>%
+  pivot_longer(cols = c(`AI Agents`, `Learn Python`), names_to = "Category", values_to = "Value")
+search_trends_long
+```
+
+```{r}
+ggplot(search_trends_long, aes(x = Week , y = Value, color = Category)) +
+  geom_line() +                     
+  labs(title = "Google Search Interest Over Time",
+       x = "Week",
+       y = "Interest",
+       color = "Topic") +
+  scale_color_manual(name = "Topic", values = c('Learn Python' = 'darkblue', 'AI Agents' = '#E66100')) +
+  theme_minimal()
+```
+
+```{r}
+search_trends_long$Category <- relevel(search_trends_long$Category, ref = "Learn Python")
+
+pois_search_model <- glm(Value ~ as.factor(Category)*Week, data=search_trends_long, family=poisson(link="log"))
+summary(pois_search_model)
+
+
+#Estimate covariance matrix with Newey West
+pois_search_model_vcov <- vcovPL(pois_search_model, cluster = ~ as.factor(search_trends_long$Category), lag="NW1994")  
+
+#Adjust standard errors based on estimated covariance matrix
+pois_search_model_nw <- coeftest(pois_search_model, vcov = pois_search_model_vcov)
+pois_search_model_nw
+
+confint(pois_search_model_nw)
+
+```
+
+```{r}
+
+predicted <- predict(pois_search_model, type = "response")
+actual <- search_trends_long$Value
+
+search_trends_long$residuals <- actual-predicted#resid(model)
+par(mfrow =c(2,3))
+
+learn_python_data <- search_trends_long[search_trends_long$Category == "Learn Python",]
+ai_agents_data <- search_trends_long[search_trends_long$Category == "AI Agents",]
+
+plot(learn_python_data$Week, learn_python_data$residuals, xlab="Week", main="Learn Python Residuals", ylab="Residuals")
+acf(learn_python_data$residuals, main="ACF of Learn Python Residuals")
+pacf(learn_python_data$residuals, main="PACF of Learn Python Residuals")
+
+plot(ai_agents_data$Week, ai_agents_data$residuals, xlab="Week", main="AI Agent Residuals", ylab="Residuals")
+acf(ai_agents_data$residuals, main="ACF of AI Agent Residuals")
+pacf(ai_agents_data$residuals, main="PACF of AI Agent Residuals")
+
+
+mtext('Model of Searches - Residual Plots', side = 3, line = -1.1, outer = TRUE)
+
+  
+```
+
+```{r}
+  ggplot(search_trends_long, aes(x = Week, y = Value, color = Category, alpha="Observed")) +
+    geom_point() +
+    labs(x = "Week",
+         y = str_wrap("Interest", width = 40),
+         color = "Search",
+         alpha = " ",
+         title=str_wrap("Estimated Interest over Time", width = 60))+
+    scale_color_manual(name = "Interest", values = c('Learn Python' = 'darkblue', 'AI Agents' = '#E66100')) +
+    geom_line(aes(x=Week, y=predicted, alpha = "Fitted"), size=1)+
+    scale_alpha_manual(values = c(0.5, 1))+
+  theme_minimal()
+```
+
+```{r}
+
+texreg(pois_search_model)
+
+```
