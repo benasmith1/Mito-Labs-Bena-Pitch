@@ -16,7 +16,7 @@ with st.sidebar:
     - **AI Agent Trends**: Time series analysis of \"AI agent\" google searches.
     """)
 
-st.image("BenaSmithHeadshot.png", caption="")
+st.image("figures/BenaSmithHeadshot.png", caption="")
 
 st.markdown("""I am especially excited about creating AI agents. At Gallo Winery, I created a LangChain AI agent to ask questions about Gallo’s wine sales in plain language. 
             The agent writes SQL code and queries the sales database to return an answer. I was asked to return to Gallo as a full-time Associate Data Scientist following this project.
