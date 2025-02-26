@@ -2,7 +2,7 @@ import streamlit as st
 
 
 st.set_page_config(
-    page_title = "About Bena",
+    page_title = "Sentiment Analysis",
     page_icon = "🌉",
     layout = "wide"
 )
